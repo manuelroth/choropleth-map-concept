@@ -5,7 +5,7 @@ Dieses Repository enthält ein Konzept für ein Tool, das es jedem Journalisten 
 ### Was ist eine Choropleth Karte?
 Choropleth Karten können zur Visualisierung eines Messwerts auf einer geographischen Fläche verwendet werden. Im folgenden Beispiel stammt aus einem [Artikel](https://www.nzz.ch/international/bundestagswahl-deutschland-wo-die-parteien-gewonnen-haben-wo-sie-verloren-haben-ld.1316297) der NZZ und zeigt die Wahlanteil der SPD in den verschiedenen Region Deutschlands.
 
-![SPD Wahlhochburgen](./spd_germany_voting.png)
+<img alt="SPD Wahlhochburgen" width="500" src="https://raw.githubusercontent.com/manuelroth/choropleth-map-concept/master/spd_germany_voting.png" />
 
 ### Anforderungen
 Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderungen an das Tool.
