@@ -73,7 +73,7 @@ Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderunge
     - Keine Interaktion mit Grafik möglich
     - [Beispielprojekt](https://www.nzz.ch/international/frankreich-hat-gewaehlt-die-linie-marseillele-havre-ld.1291610), **Total 689KB**
 
-#### Serverside Rendering vs. Clientside Rendering Diskussion
+#### Serverside vs. Clientside Rendering Diskussion
 - Tools wie D3-Node ermöglichen es D3-Grafiken auf Serverseite zu generieren und nur SVG auszuliefern
 - Das muss aber nicht zwingend heissen, dass serverseitig gerendertes SVG/PNG kleiner ist als clientseitig gerenderte Grafik (D3.js und TopoJSON library, Geodaten, Daten für Karte)
 - Serverseitiges Rendern ist zudem nur für statische Karten zu gebrauchen, wohingegen clientseitiges Rendern Interaktion mit der Karte ermöglicht
