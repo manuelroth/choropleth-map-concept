@@ -83,7 +83,7 @@ Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderunge
 **-> Weitere Abklärungen nötig: Interaktion mit Karte nötig?- Beispiele direkt gegenüber stellen (Was ist schneller?- Kleinerer Downloadgrösse dafür Rendern auf Client oder grösserer Download dafür direkte Anzeige von SVG/PNG)**
 
 #### Recherche verschiedener Choropleth Karten
-- [Blog Post](https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/) Timo Grossenbacher Choropleth Karte mit R erstellen
+- [Blog Post](https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/) von Timo Grossenbacher: Choropleth Karte mit R erstellen
 - SRF Data SBB GA/Halbtax -> [Endergebnis](https://srfdata.github.io/2017-09-sbb-ga-halbtax/#deskriptive_statistik) und [Code](https://www.srf.ch/news/schweiz/pendlerland-schweiz-hier-verkaufen-sich-ga-und-halbtax-am-besten)
 - [Einfaches Beispiel](http://journocode.com/2017/08/16/datajournalism-workflow-ddj-r-rstats-rstudio-dplyr-ggplot2-tidyr/) mit R zu Choropleth Karte von Journocode
 - NZZ Storytelling Choropleth Karten
@@ -91,7 +91,94 @@ Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderunge
     - Meisten sind als PNG’s veröffentlicht (nicht interaktiv): [Bundestagswahlen](https://www.nzz.ch/international/bundestagswahl-deutschland-wo-die-parteien-gewonnen-haben-wo-sie-verloren-haben-ld.1316297), [Frankreich Wahlen](https://www.nzz.ch/international/frankreich-hat-gewaehlt-die-linie-marseillele-havre-ld.1291610), meist zwischen 600KB - 1.5MB gross
 
 #### Karte für Print verwenden
-- Cloud Service wie [CloudConvert](https://cloudconvert.com/svg-to-eps) nutzen, um SVG in ein printfähiges Format zu konvertieren
-- Headless Chrome verwenden um PDF’s zu erstellen   - Problem CMYK Farben
+- [Headless Chrome](https://github.com/GoogleChrome/puppeteer) verwenden um PDF’s zu erstellen - Problem CMYK Farben
     - Mögliche Lösung: Nur printfähige Farbpaletten anbieten -> siehe [ColorBrewer](http://colorbrewer2.org) als Inspiration
 - R Workflow verwenden und zusätzlich zu PNG/SVG für Web, eine vektorielle Version für Print generieren
+
+#### Datenobjekt mit Attributen
+- Titel
+- Beschreibung
+- Bemerkung
+- Quelle
+    - Name
+    - Url
+- Karte
+    - Name
+    - Version
+- Daten (Spalte mit ID und Spalte mit Wert)
+- Stil
+    - Farbpalette, Auswahl an Farben
+    - Farbtransparenz
+    - Randfarbe
+- Legende
+    - Titel
+    - Position
+- Tooltip
+    - Title
+    - Inhalt
+- Zoombar
+
+#### Beispiel
+
+```json
+{
+    "title": "SPD Wahlhochburgen",
+    "description": "Wo sich die Hochburgen der Parteien befinden",
+    "note": "Recherche, Datenanalyse und Grafiken: David Bauer, Lucien Baumgartner, Alexandra Kohler, Marie-José Kolly, Balz Rittmeyer",
+    "source": {
+        "name": "NZZ Storytelling",
+        "url": "https://www.nzz.ch/storytelling/"
+    },
+    "map": {
+        "name": "germany_election_districts",
+        "version": "2017"
+    },
+    "data": [
+        {
+            "id": 1,
+            "value": 255,
+            "county": "Baden-Württemberg"
+        },
+        {
+            "id": 2,
+            "value": 234,
+            "county": "Bayern"
+        },
+        ...
+        {
+            "id": 299,
+            "value": 593,
+            "county": "Thüringen"
+        }
+    ],
+    "style": {
+        "color_palette": ["#f0f9e8", "#ccebc5", "#a8ddb5","#7bccc4", "#43a2ca", "#0868ac"],
+        "color_transparency": 0.8,
+        "border_color": "#ffffff"
+    },
+    "legend": {
+        "title": "Wahlanteil",
+        "position": "bottom-center",
+        "values": [
+            {
+                "value": 20,
+                "color": "#f0f9e8"
+            },
+            {
+                "value": 30,
+                "color": "#ccebc5"
+            },
+            ...
+            {
+                "value": 100,
+                "color": "#0868ac"
+            }
+        ]
+    },
+    "tooltip": {
+        "title": "Bundesland: {{county}}",
+        "description": "Wahlanteil: {{value}}"
+    },
+    "zoomable": false
+}
+```
