@@ -28,7 +28,7 @@ Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderunge
 - *Legende soll automatisch anhand der Abstufung erstellt werden und Position/Titel der Legende kann angepasst werden*
 
 #### Nicht-funktional
-- Es sollen möglichst wenige Daten zum Client übertragen werden, um die Karte zu anzuzeigen
+- Es sollen möglichst wenige Daten zum Client übertragen werden, um die Karte anzuzeigen
 - Die Karte soll auf dem Endgerät möglichst schnell angezeigt werden
 
 ### Umsetzung
@@ -77,7 +77,7 @@ Dieser Abschnitt beschreibt die funktionalen und nicht-funktionalen Anforderunge
 - Tools wie D3-Node ermöglichen es D3-Grafiken auf Serverseite zu generieren und nur SVG auszuliefern
 - Das muss aber nicht zwingend heissen, dass serverseitig gerendertes SVG/PNG kleiner ist als clientseitig gerenderte Grafik (D3.js und TopoJSON library, Geodaten, Daten für Karte)
 - Serverseitiges Rendern ist zudem nur für statische Karten zu gebrauchen, wohingegen clientseitiges Rendern Interaktion mit der Karte ermöglicht
-- Erste Auswertung hat gezeigt, dass mit Hilfe von Clientlibraries weniger Daten übertragen werden müssen. Es müsste aber noch genauer analysiert werden was nun wirklich schneller ist. Grundsätzlich kann man aber davon ausgehen, dass der Grossteil der Nutzer eher über eine langsame Internetverbindung verfügt als über langsame/veraltete Geräte.
+- Erste Auswertung hat gezeigt, dass mit Hilfe von Client-Libraries weniger Daten übertragen werden müssen. Es müsste aber noch genauer analysiert werden was nun wirklich schneller ist. Grundsätzlich kann man aber davon ausgehen, dass der Grossteil der Nutzer eher über eine langsame Internetverbindung verfügt als über langsame/veraltete Geräte.
 
 **-> Weitere Abklärungen nötig: Interaktion mit Karte nötig?- Beispiele direkt gegenüber stellen (Was ist schneller?- Kleinerer Downloadgrösse dafür Rendern auf Client oder grösserer Download dafür direkte Anzeige von SVG/PNG)**
 
